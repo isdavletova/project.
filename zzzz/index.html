@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  <title> Mortgage repayment calculator </title>
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body class="bg-blue-100 flex justify-center items-center min-h-screen">
+    <div class="bg-white shadow-lg rounded-lg p-6 w-full max-w-3xl flex flex-row">
+        <div class="flex flex-col">
+            <h2 class="text-xl font-bold text-center mb-4">Mortgage Calculator</h2>
+            <form id="mortgage-form" class="space-y-4">
+                <div>
+                    <label class="block text-gray-700">Mortgage Amount (£)</label>
+                    <input type="number" id="amount" class="w-full p-2 border rounded" required>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-700">Mortgage Term (years)</label>
+                        <input type="number" id="term" class="w-full p-2 border rounded" required>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700">Interest Rate (%)</label>
+                        <input type="number" id="rate" class="w-full p-2 border rounded" step="0.01" required>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-gray-700">Mortgage Type</label>
+                    <div class="flex gap-4">
+                        <label class="flex items-center gap-2">
+                            <input type="radio" name="mortgage-type" value="repayment" checked>
+                            <span>Repayment</span>
+                        </label>
+                        <label class="flex items-center gap-2">
+                            <input type="radio" name="mortgage-type" value="interest-only">
+                            <span>Interest Only</span>
+                        </label>
+                    </div>
+                </div>
+            <button type="submit" class="w-full bg-lime-400 text-white p-2 rounded">Calculate Repayments</button>
+        </form>
+        <div class="flex-1 bg-gray-900 text-white p-6 shadow-lg flex flex-col justify-center mb-4 mt-5 rounded-sm">
+            <h3 class="text-lg font-semibold">Your results</h3>
+            <div class="mt-4 p-4 border border-gray-700 rounded">
+                <p class="text-xl">Monthly Repayment: <span id="monthly-repayment" class="font-bold text-yellow-400">£0.00</span></p>
+                <p class="text-lg mt-2">Total Repayment: <span id="total-repayment" class="font-bold text-gray-300">£0.00</span></p>
+            </div>
+        </div>   
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
